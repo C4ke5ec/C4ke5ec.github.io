@@ -1,0 +1,27 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Linux</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="Zero_to_Hero.html">Zero to Hero</a></p>
+
+<ol>
+<li><a href="Zero_to_Hero--Ep1_Course_Intro,_Notekeeping,_Intro_to_Linux.html">Ep1_Course Intro, Notekeeping, Intro to Linux</a></li>
+<ol>
+<li><a href="Zero_to_Hero--Ep1_Course_Intro,_Notekeeping,_Intro_to_Linux--Notekeeping.html">Notekeeping</a></li>
+<li><a href="Zero_to_Hero--Ep1_Course_Intro,_Notekeeping,_Intro_to_Linux--Linux.html">Linux</a></li>
+<li><a href="Zero_to_Hero--Ep1_Course_Intro,_Notekeeping,_Intro_to_Linux--AMA.html">AMA</a></li>
+</ol>
+<li><a href="Zero_to_Hero--Ep2_Python_101.html">Ep2_Python 101</a></li>
+<ol>
+<li><a href="Zero_to_Hero--Ep2_Python_101--Resources.html">Resources</a></li>
+<li><a href="Zero_to_Hero--Ep2_Python_101--AMA.html">AMA</a></li>
+</ol>
+<li><a href="Zero_to_Hero--Ep3_Python_102.html">Ep3_Python 102</a></li>
+</ol></div>
+<div class="page"><h1><b><u>Linux</u></b></h1><h2>Locate</h2><br />• updatedb - Updates the file index that the <strong>locate</strong> command uses<br />• Command does not require a directory to be specified<br /><br /><h2>ls -la</h2><br />-a - Does not ignore files starting with a period “.”<br />-l - Long listing<br />   •  Permissions split into 4 sections 0 123 456 789<br />      ◇ 0 - Type of file “-” is a file; “d” is a directory<br />      ◇ 123 - File owner permissions<br />      ◇ 456 - Group owner permissions<br />      ◇ 789 - Everyone else permissions<br /><br /><h2>chmod</h2> - change mode<br />•  cmod 777 or +x <br />• whatever<br /><br /><br /><h1>Most Important Files in Linux</h1><br />• /etc/passwd<br />• /etc/shadow -------- tool “Unshadowing” combining passwd and shadow file<br /><br /><h2>su</h2> - Switch User<br />• “su bob”<br />• “su -” sends us back to root<br /><br />arp -a - Find us the mac address<br />netstat -ano - Show all ports open and what is connected to those ports<br />route - <br /><br /><br /><br /><h2>Impacket</h2> <br /><br /><br /><br /><h2>systemctl</h2><br />• Using “service apache2 start” will not make the service start again on reboot.<br />• Systemctl will make sure the service starts on reboot<br /><br /><br /><br /><h2>Simple Scripting</h2><br /><br /><h2>&amp; allows for threading</h2><br /><br />##  Simple network scanner<br /><br />$1 - takes in user input (e.x. ipsweep.sh 192.168.0)<br />$ip - uses the sequence 1-254 as an IP<br />&amp; - at the end does threading. Meaning that it will scan all of the ip's at the same time all at once.<br />./ipsweep.sh<br />#!/bin/bash<br />for ip in `seq 1 254`; do<br />ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &amp;<br />done<br /><br />#### Fixed up the script to do a bit of error catching<br />#!/bin/bash<br /><br />if [ "$1" == "" ]<br />then<br />echo "You forgot an IP address!"<br />echo "Syntax: ./ipsweep.sh 192.168.0."<br /><br />else<br />for ip in `seq 1 254`; do<br />ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &amp;<br />done<br />fi</div></div>
+</body></html>

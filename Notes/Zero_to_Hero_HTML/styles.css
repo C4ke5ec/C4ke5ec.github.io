@@ -23,6 +23,8 @@ body {
     font-family: "Open Sans", sans-serif !important;
     padding: 20x; 
     white-space: pre-wrap;
+    background: black;
+    color: green;
 }
 
 div.main {
@@ -31,15 +33,16 @@ div.main {
 
 div.tree {
     width: 300px;
-    /*background-color: #EEEEEE;
-    border-top: 1px solid #DDDDDD;
-    border-bottom: 1px solid #DDDDDD;
-    margin-bottom: 20px;*/
+    background-color: rgba(0, 255, 0, 0.781);
+    border-top: 1px solid rgb(30, 165, 151);
+    border-bottom: 1px solid rgb(30, 165, 151);
+    margin-bottom: 20px;
     padding: 0.75em 0 0.75em 20px;
     float: left;
     position: fixed;
     height: 97%;
     overflow: auto;
+    border-radius: 25px;
 }
 
 div.page {
@@ -58,11 +61,11 @@ div.page {
 
 div.tree {
     font-size: 12px;
-    color: #666666;
+    color: black;
 }
 
 div.tree a, div.tree a:visited {
-    color: #666666;
+    color: black;
     text-decoration: none;
 }
 
